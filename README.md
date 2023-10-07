@@ -18,12 +18,17 @@ This project is a starting point for a Flutter plug-in package, a specialized pa
 
 ```dart
 // To use the license plate's show mode:
- CarLicensePlate(
-  isInputType: false,
-  noneInputAlphabetSection: "الف",
-  noneInputCityNumber: "63",
-  noneInputThreeNumberSection: "369",
-  noneInputTwoNumberSection: "21",
+  CarLicensePlate(
+   isInputType: false,
+   noneInputAlphabetSection: "الف",
+   noneInputCityNumber: "63",
+   noneInputThreeNumberSection: "369",
+   noneInputTwoNumberSection: "21",
+   inputCityNumberTextFormField: null,
+   inputTwoNumberSectionTextFormField: null,
+   inputThreeNumberSectionTextFormField: null,
+   persianWords: [],
+   modalBottomSheet: (BuildContext ) {  },
 );
 
 // To use the license plate's input mode:
