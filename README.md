@@ -1,39 +1,33 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# car_license_plate
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+A flutter package to use vehicle license plate of Iran .
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+## Getting Started
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This project is a starting point for a Flutter plug-in package, a specialized package that includes platform-specific implementation code for All Platforms.
 
-## Features
+# License plate's input mode
+![Screenshot_20231007_124838](https://github.com/ashkanbmn/car_license_plate/assets/74037732/b0b20222-456d-4443-abf2-fd567cfcbcd3)
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
 
-## Getting started
+# License plate's show mode
+![Screenshot_20231007_134442](https://github.com/ashkanbmn/car_license_plate/assets/74037732/cbe9d87d-7a24-4a7a-ae23-89671d03b3dc)
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+// To use the license plate's show mode:
+ CarLicensePlate(
+  isInputType: false,
+  noneInputAlphabetSection: "الف",
+  noneInputCityNumber: "63",
+  noneInputThreeNumberSection: "369",
+  noneInputTwoNumberSection: "21",
+),
+
+// To use the license plate's input mode:
+  CarLicensePlate(
+   isInputType: true,
+  ),
 ```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
