@@ -213,8 +213,7 @@ class VehiclePlateInfoWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          numberFormat
-                              .format(int.tryParse(threeNumberSection)),
+                          numberFormat.format(int.tryParse(threeNumberSection)),
                           style: const TextStyle(fontSize: 16),
                           textDirection: TextDirection.rtl,
                         ),
