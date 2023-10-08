@@ -36,6 +36,27 @@ pickedPersianWord: pickedWordValue,
 modalBottomSheet: showBottomSheet
 )
 
+// To use the TextFormFields : 
+TextFormField(
+controller:TwoNumberSectionController,
+focusNode: TwoNumberSectionFocus,
+textDirection: TextDirection.ltr,
+textAlign: TextAlign.center,
+style: TextStyle(
+// It is important that the fontSize be 36.
+fontSize: 36,
+color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
+),
+keyboardType: TextInputType.number,
+decoration: InputDecoration(
+// hint text can be two or three ("-- or ---") based on car license plate's Section
+hintText: "- -",
+hintStyle: TextStyle(fontSize: 30, color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white),
+// It is important that border be InputBorder.none;
+border: InputBorder.none,
+),
+)
+
 // To use the persian words :
 List<String> persianWords = ['الف', 'ب', 'پ', 'ت', 'ث', 'ج', 'چ', 'ح', 'خ', 'د', 'ذ', 'ر', 'ز', 'ژ', 'س', 'ش', 'ص', 'ض', 'ط', 'ظ', 'ع', 'غ', 'ف', 'ق', 'ک', 'گ', 'ل', 'م', 'ن', 'و', 'ه', 'ی', 'معلولین'];
 
@@ -80,26 +101,4 @@ child: Text(value),
 },
 );
 }
-
-// To use the TextFormFields : 
-TextFormField(
-controller:TwoNumberSectionController,
-focusNode: TwoNumberSectionFocus,
-textDirection: TextDirection.ltr,
-textAlign: TextAlign.center,
-style: TextStyle(
-// It is important that the fontSize be 36.
-fontSize: 36,
-color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white,
-),
-keyboardType: TextInputType.number,
-decoration: InputDecoration(
-// hint text can be two or three ("-- or ---") based on car license plate's Section
-hintText: "- -",
-hintStyle: TextStyle(fontSize: 30, color: Theme.of(context).brightness == Brightness.light ? Colors.black : Colors.white),
-// It is important that border be InputBorder.none;
-border: InputBorder.none,
-),
-)
-
 ```

@@ -73,7 +73,6 @@ class _CarLicensePlateState extends State<CarLicensePlate> {
             children: [
               // Container displaying the license plate image.
               Container(
-                color: Theme.of(context).colorScheme.surface,
                 margin: const EdgeInsets.all(16),
                 child: Image.asset(
                   "assets/image/${Theme.of(context).brightness == Brightness.light ? "plate_iran_transparent" : "plate_iran_white"}.png",
@@ -178,84 +177,81 @@ class VehiclePlateInfoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final numberFormat = intl.NumberFormat('#,###');
-    return Container(
-      color: Theme.of(context).colorScheme.surface,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Image.asset(
-            "assets/image/${Theme.of(context).brightness == Brightness.light ? "plate_iran_transparent" : "plate_iran_white"}.png",
-            width: 200,
-            height: 50,
-          ),
-          Positioned.fill(
-            child: Container(
-              margin: const EdgeInsets.only(top: 8, left: 8),
-              alignment: Alignment.center,
-              child: Row(
-                textDirection: TextDirection.rtl,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    width: 20,
-                    child: Center(
-                      child: Text(
-                        numberFormat.format(int.tryParse(cityNumberSection)),
-                        style: const TextStyle(fontSize: 16),
-                        textDirection: TextDirection.rtl,
-                      ),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Image.asset(
+          "assets/image/${Theme.of(context).brightness == Brightness.light ? "plate_iran_transparent" : "plate_iran_white"}.png",
+          width: 200,
+          height: 50,
+        ),
+        Positioned.fill(
+          child: Container(
+            margin: const EdgeInsets.only(top: 8, left: 8),
+            alignment: Alignment.center,
+            child: Row(
+              textDirection: TextDirection.rtl,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 20,
+                  child: Center(
+                    child: Text(
+                      numberFormat.format(int.tryParse(cityNumberSection)),
+                      style: const TextStyle(fontSize: 16),
+                      textDirection: TextDirection.rtl,
                     ),
                   ),
-                  const SizedBox(
-                    width: 25,
-                  ),
-                  SizedBox(
-                    width: 120,
-                    child: Center(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            numberFormat
-                                .format(int.tryParse(threeNumberSection)),
-                            style: const TextStyle(fontSize: 16),
-                            textDirection: TextDirection.rtl,
-                          ),
-                          const SizedBox(width: 5),
-                          alphabetSection == "معلولین"
-                              ? Image.asset(
-                                  "assets/image/disabled.png",
-                                  height: 16,
-                                  width: 16,
-                                )
-                              : Text(
-                                  "$alphabetSection",
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                  textDirection: TextDirection.rtl,
+                ),
+                const SizedBox(
+                  width: 25,
+                ),
+                SizedBox(
+                  width: 120,
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          numberFormat
+                              .format(int.tryParse(threeNumberSection)),
+                          style: const TextStyle(fontSize: 16),
+                          textDirection: TextDirection.rtl,
+                        ),
+                        const SizedBox(width: 5),
+                        alphabetSection == "معلولین"
+                            ? Image.asset(
+                                "assets/image/disabled.png",
+                                height: 16,
+                                width: 16,
+                              )
+                            : Text(
+                                "$alphabetSection",
+                                style: const TextStyle(
+                                  fontSize: 16,
                                 ),
-                          const SizedBox(width: 5),
-                          Text(
-                            numberFormat.format(int.tryParse(twoNumberSection)),
-                            style: const TextStyle(
-                              fontSize: 16,
-                            ),
-                            textDirection: TextDirection.rtl,
+                                textDirection: TextDirection.rtl,
+                              ),
+                        const SizedBox(width: 5),
+                        Text(
+                          numberFormat.format(int.tryParse(twoNumberSection)),
+                          style: const TextStyle(
+                            fontSize: 16,
                           ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                        ],
-                      ),
+                          textDirection: TextDirection.rtl,
+                        ),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }
