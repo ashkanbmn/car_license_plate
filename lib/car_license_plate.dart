@@ -25,6 +25,9 @@ class CarLicensePlate extends StatelessWidget {
   /// Custom width for the license plate (if null, uses constraints)
   final double? width;
 
+  /// Show disability icon instead of text in alphabet section
+  final bool showDisabilityIcon;
+
   const CarLicensePlate({
     super.key,
     this.isInputType = false,
@@ -39,6 +42,7 @@ class CarLicensePlate extends StatelessWidget {
     this.textSize,
     this.usePersianNumbers = false,
     this.width,
+    this.showDisabilityIcon = false,
   }) : assert(
   !isInputType ||
       (onCityNumberChanged != null &&
@@ -69,6 +73,7 @@ class CarLicensePlate extends StatelessWidget {
           onThreeNumberChanged: onThreeNumberChanged,
           onAlphabetTap: onAlphabetTap,
           usePersianNumbers: usePersianNumbers,
+          showDisabilityIcon: showDisabilityIcon,
         );
       },
     );
@@ -103,6 +108,7 @@ class _PlateContainer extends StatelessWidget {
   final ValueChanged<String>? onThreeNumberChanged;
   final VoidCallback? onAlphabetTap;
   final bool usePersianNumbers;
+  final bool showDisabilityIcon;
 
   const _PlateContainer({
     required this.width,
@@ -117,6 +123,7 @@ class _PlateContainer extends StatelessWidget {
     this.onThreeNumberChanged,
     this.onAlphabetTap,
     required this.usePersianNumbers,
+    required this.showDisabilityIcon,
   });
 
   String _plateImage(BuildContext context) {
@@ -219,6 +226,7 @@ class _PlateContainer extends StatelessWidget {
                   textSize: effectiveTextSize,
                   isInputType: isInputType,
                   onTap: onAlphabetTap,
+                  showDisabilityIcon: showDisabilityIcon,
                 ),
               ),
               SizedBox(width: spacing),
@@ -313,6 +321,7 @@ class _AlphabetSection extends StatelessWidget {
   final double textSize;
   final bool isInputType;
   final VoidCallback? onTap;
+  final bool showDisabilityIcon;
 
   const _AlphabetSection({
     required this.text,
@@ -320,18 +329,18 @@ class _AlphabetSection extends StatelessWidget {
     required this.textSize,
     required this.isInputType,
     this.onTap,
+    required this.showDisabilityIcon,
   });
 
   @override
   Widget build(BuildContext context) {
-    final bool isDisabled = text == 'معلولین';
     final double radius = size * 0.2;
 
-    Widget content = isDisabled
+    Widget content = showDisabilityIcon
         ? Image.asset(
       'assets/images/disabled.png',
       package: 'car_license_plate',
-      height: size * 0.6,
+      height: size * 0.4,
       color: Theme.of(context).iconTheme.color,
     )
         : Text(
