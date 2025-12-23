@@ -1,5 +1,8 @@
 ## Changelog
 
+### [0.0.10] - 2024-12-23
+- Add `showDisabilityIcon` boolean parameter
+
 ### [0.0.9] - 2025-12-23
 #### ✨ New Features
 - **Persian/English Numbers**: Added `usePersianNumbers` parameter to toggle between ۰-۹ and 0-9

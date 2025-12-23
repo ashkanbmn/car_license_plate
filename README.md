@@ -28,4 +28,4 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  car_license_plate: ^0.0.9
+  car_license_plate: ^0.0.10
